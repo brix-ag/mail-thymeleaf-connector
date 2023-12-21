@@ -1,0 +1,444 @@
+{
+  "$schema": "https://unpkg.com/@camunda/zeebe-element-templates-json-schema@0.8.0/resources/schema.json",
+  "name": "Mail SMTP Thymeleaf",
+  "id": "ch.brix.camunda.connectors.mailSmtpThymeleaf:1",
+  "version": 1,
+  "description": "Send mails via SMTP mail server using Thymeleaf and TLS 1.3",
+  "documentationRef": "https://docs.brix.ch",
+  "icon": {
+    "contents": "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgd2lkdGg9IjgwMHB4IiBoZWlnaHQ9IjgwMHB4IiBzdHlsZT0ic2hhcGUtcmVuZGVyaW5nOmdlb21ldHJpY1ByZWNpc2lvbjsgdGV4dC1yZW5kZXJpbmc6Z2VvbWV0cmljUHJlY2lzaW9uOyBpbWFnZS1yZW5kZXJpbmc6b3B0aW1pemVRdWFsaXR5OyBmaWxsLXJ1bGU6ZXZlbm9kZDsgY2xpcC1ydWxlOmV2ZW5vZGQiIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj4KPGc+PHBhdGggc3R5bGU9Im9wYWNpdHk6MC45ODIiIGZpbGw9IiMwMDAwMDAiIGQ9Ik0gNzk5LjUsMjA0LjUgQyA3OTkuNSwzMzQuNSA3OTkuNSw0NjQuNSA3OTkuNSw1OTQuNUMgNzkyLjQ2LDYyOS4wNDUgNzcxLjc5Myw2NTAuODc4IDczNy41LDY2MEMgNjI0Ljg2Miw2NjEuMTYxIDUxMi4xOTYsNjYxLjY2MSAzOTkuNSw2NjEuNUMgMjg2LjgwNCw2NjEuNjYxIDE3NC4xMzgsNjYxLjE2MSA2MS41LDY2MEMgMjcuMjAwNyw2NTAuODcyIDYuNTM0MDcsNjI5LjAzOSAtMC41LDU5NC41QyAtMC41LDQ2NC41IC0wLjUsMzM0LjUgLTAuNSwyMDQuNUMgNy4yNzg1MSwxNjcuODg5IDI5LjYxMTgsMTQ1LjcyMiA2Ni41LDEzOEMgMjg4LjUsMTM3LjMzMyA1MTAuNSwxMzcuMzMzIDczMi41LDEzOEMgNzY5LjM2MSwxNDUuNjk1IDc5MS42OTUsMTY3Ljg2MiA3OTkuNSwyMDQuNSBaIE0gMTAzLjUsMTkyLjUgQyAzMDAuNjY2LDE5MS4zMzQgNDk4LDE5MS4xNjcgNjk1LjUsMTkyQyA1OTkuMTY3LDI4OC4zMzMgNTAyLjgzMywzODQuNjY3IDQwNi41LDQ4MUMgNDAxLjgzMyw0ODQuMzMzIDM5Ny4xNjcsNDg0LjMzMyAzOTIuNSw0ODFDIDI5Ni4yOTksMzg0LjYzMiAxOTkuOTY1LDI4OC40NjUgMTAzLjUsMTkyLjUgWiBNIDUyLjUsMjE4LjUgQyAxMTUuNDc5LDI4MC44MTIgMTc4LjE0NiwzNDMuNDc5IDI0MC41LDQwNi41QyAxNzkuMTY3LDQ2OC41IDExNy41LDUzMC4xNjcgNTUuNSw1OTEuNUMgNTQuMTAzOCw1ODkuMDI4IDUzLjI3MDQsNTg2LjM2MiA1Myw1ODMuNUMgNTIuNSw0NjEuODM0IDUyLjMzMzMsMzQwLjE2NyA1Mi41LDIxOC41IFogTSA3NDUuNSwyMTguNSBDIDc0Ni42NjYsMzM5Ljk5OSA3NDYuODMzLDQ2MS42NjYgNzQ2LDU4My41QyA3NDUuNzMsNTg2LjM2MiA3NDQuODk2LDU4OS4wMjggNzQzLjUsNTkxLjVDIDY4MS41LDUzMC4xNjcgNjE5LjgzMyw0NjguNSA1NTguNSw0MDYuNUMgNjIwLjg1NCwzNDMuODEyIDY4My4xODgsMjgxLjE0NiA3NDUuNSwyMTguNSBaIE0gMjc4LjUsNDQ1LjUgQyAyNzkuMjM5LDQ0NS4zNjkgMjc5LjkwNiw0NDUuNTM2IDI4MC41LDQ0NkMgMzA2Ljg2MSw0NzIuNjk1IDMzMy41MjgsNDk5LjAyOCAzNjAuNSw1MjVDIDM4Ni41LDU0MS42NjcgNDEyLjUsNTQxLjY2NyA0MzguNSw1MjVDIDQ2NS42NTIsNDk4LjY4MSA0OTIuNjUyLDQ3Mi4xODEgNTE5LjUsNDQ1LjVDIDU3My42NTMsNDk5LjE1MyA2MjcuNjUzLDU1Mi45ODYgNjgxLjUsNjA3QyA0OTMuNSw2MDcuNjY3IDMwNS41LDYwNy42NjcgMTE3LjUsNjA3QyAxNzEuMzY4LDU1My4yOTkgMjI1LjAzNSw0OTkuNDY1IDI3OC41LDQ0NS41IFoiLz48L2c+CjxnPjxwYXRoIHN0eWxlPSJvcGFjaXR5OjAuOTk3IiBmaWxsPSIjMDU1ZjExIiBkPSJNIDQ4Ny41LDIwNi41IEMgNTAwLjY3NiwyMDYuNTI0IDUwNS4xNzYsMjEyLjg1NyA1MDEsMjI1LjVDIDQ4Ni44NzksMjU2LjQxIDQ3Mi4yMTIsMjg3LjA3NiA0NTcsMzE3LjVDIDQ0NC42MjcsMzQxLjU0NyA0MjguMTI3LDM2Mi4zOCA0MDcuNSwzODBDIDM4NS45MTYsMzk0Ljg2NiAzNjMuNTgyLDM5Ni4yIDM0MC41LDM4NEMgMzE4LjcxNCwzNjUuMzA0IDMxMS44ODEsMzQyLjEzNyAzMjAsMzE0LjVDIDMyNS4wMjcsMzA1LjEzNyAzMzEuODYsMjk3LjMwMyAzNDAuNSwyOTFDIDM1Ny4zODQsMjgzLjM5MSAzNzQuMzg0LDI3Ni4wNTggMzkxLjUsMjY5QyA0MjEuMjMyLDI1NC40NzkgNDQ4LjU2NSwyMzYuNDc5IDQ3My41LDIxNUMgNDc4LjQyOSwyMTIuMzc5IDQ4My4wOTYsMjA5LjU0NiA0ODcuNSwyMDYuNSBaIi8+PC9nPgo8Zz48cGF0aCBzdHlsZT0ib3BhY2l0eToxIiBmaWxsPSIjZmNmY2ZjIiBkPSJNIDQ4OS41LDIxOS41IEMgNDc3LjI4LDI0OC42MzQgNDYzLjc4LDI3Ny42MzQgNDQ5LDMwNi41QyA0MzguNjIsMzI1Ljg3MyA0MjYuMjg2LDM0My44NzMgNDEyLDM2MC41QyA0MDIuMzQ2LDM3MC4yNDQgMzkwLjg0NiwzNzYuNzQ0IDM3Ny41LDM4MEMgMzY0LjY5LDM4Mi4yOTggMzUzLjM1NywzNzkuMjk4IDM0My41LDM3MUMgMzM3LjUwNywzNjMuNTQ3IDMzNy4wMDcsMzU1LjcxMyAzNDIsMzQ3LjVDIDM0Ny4xOTgsMzQxLjk2NyAzNTIuNjk4LDMzNi44IDM1OC41LDMzMkMgNDAxLjc4MywzMDQuNDExIDQ0MS4yODMsMjcxLjkxMSA0NzcsMjM0LjVDIDQ4MS4zNzgsMjI5LjYyNyA0ODUuNTQ1LDIyNC42MjcgNDg5LjUsMjE5LjUgWiIvPjwvZz4KPGc+PHBhdGggc3R5bGU9Im9wYWNpdHk6MSIgZmlsbD0iI2FhYTY5YiIgZD0iTSA0NzAuNSwyMzIuNSBDIDQ3MS4yMzksMjMyLjM2OSA0NzEuOTA2LDIzMi41MzYgNDcyLjUsMjMzQyA0MzguNjU3LDI2OC4yMDEgNDAxLjMyMywyOTguODY4IDM2MC41LDMyNUMgMzUyLjM0OSwzMzEuMTUyIDM0NC44NDksMzM3Ljk4NSAzMzgsMzQ1LjVDIDMzNi4wOTEsMzQ5LjMxNSAzMzQuNzU4LDM1My4zMTUgMzM0LDM1Ny41QyAzMjEuMzY5LDMyNi45MjcgMzMwLjUzNSwzMDUuNzYgMzYxLjUsMjk0QyA0MDEuODg4LDI4MC4xNTQgNDM4LjIyMSwyNTkuNjU0IDQ3MC41LDIzMi41IFoiLz48L2c+Cjwvc3ZnPgo\u003d"
+  },
+  "category": {
+    "id": "connectors",
+    "name": "Connectors"
+  },
+  "appliesTo": [
+    "bpmn:Task"
+  ],
+  "elementType": {
+    "value": "bpmn:ServiceTask"
+  },
+  "groups": [
+    {
+      "id": "tpt",
+      "label": "Email Template"
+    },
+    {
+      "id": "kck",
+      "label": "Keycloak Attributes"
+    },
+    {
+      "id": "sjt",
+      "label": "Subject"
+    },
+    {
+      "id": "sdr",
+      "label": "Sender"
+    },
+    {
+      "id": "rcp",
+      "label": "Recipients"
+    },
+    {
+      "id": "cps",
+      "label": "Copies"
+    },
+    {
+      "id": "output",
+      "label": "Output Mapping"
+    },
+    {
+      "id": "errors",
+      "label": "Error Handling"
+    }
+  ],
+  "properties": [
+    {
+      "type": "Hidden",
+      "binding": {
+        "type": "zeebe:taskDefinition:type"
+      },
+      "value": "ch.brix.camunda.connectors.mailSmtpThymeleaf:1"
+    },
+    {
+      "id": "tptTemplate",
+      "label": "Thymeleaf Template",
+      "description": "Relative to template root without extension.",
+      "group": "tpt",
+      "type": "String",
+      "feel": "optional",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "tptTemplate"
+      },
+      "constraints": {
+        "notEmpty": true
+      }
+    },
+    {
+      "id": "tptFallbackLocale",
+      "label": "Fallback Locale",
+      "description": "Locale to use for subject and template if not defined through other means.",
+      "group": "tpt",
+      "type": "String",
+      "feel": "optional",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "tptFallbackLocale"
+      }
+    },
+    {
+      "id": "tptVariables",
+      "label": "Template Variables",
+      "description": "Variables that should be available in the template (empty \u003d all). See \u003ca href\u003d\"#TODO\"\u003ehere\u003c/a\u003e for the types of deserialized variables.",
+      "group": "tpt",
+      "type": "String",
+      "feel": "optional",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "tptVariables"
+      }
+    },
+    {
+      "id": "tptUserVariableName",
+      "label": "Recipient Variable Name",
+      "description": "Name of the variable to which the recipient \u003ca href\u003d\"#TODO\"\u003eUser object\u003c/a\u003e is passed.",
+      "group": "tpt",
+      "type": "String",
+      "feel": "optional",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "tptUserVariableName"
+      }
+    },
+    {
+      "id": "tptSenderVariableName",
+      "label": "Sender Variable Name",
+      "description": "Name of the variable to which the sender \u003ca href\u003d\"#TODO\"\u003eUser object\u003c/a\u003e is passed.",
+      "group": "tpt",
+      "type": "String",
+      "feel": "optional",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "tptSenderVariableName"
+      }
+    },
+    {
+      "id": "kckLocaleAttributeName",
+      "label": "Locale Attribute Name",
+      "description": "If set the locale is taken from this attribute.",
+      "group": "kck",
+      "type": "String",
+      "feel": "optional",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "kckLocaleAttributeName"
+      }
+    },
+    {
+      "id": "kckSexAttributeName",
+      "label": "Sex Attribute Name",
+      "description": "If set the sex is taken from this attribute.",
+      "group": "kck",
+      "type": "String",
+      "feel": "optional",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "kckSexAttributeName"
+      }
+    },
+    {
+      "id": "kckMaleSexAttributeValue",
+      "label": "Male Sex Attribute Value",
+      "description": "This value will be interpreted as male (for the \u003ca href\u003d\"#TODO\"\u003eUser object\u003c/a\u003e).",
+      "group": "kck",
+      "type": "String",
+      "feel": "optional",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "kckMaleSexAttributeValue"
+      },
+      "value": "m"
+    },
+    {
+      "id": "kckFemaleSexAttributeValue",
+      "label": "Female Sex Attribute Value",
+      "description": "This value will be interpreted as female (for the \u003ca href\u003d\"#TODO\"\u003eUser object\u003c/a\u003e).",
+      "group": "kck",
+      "type": "String",
+      "feel": "optional",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "kckFemaleSexAttributeValue"
+      },
+      "value": "f"
+    },
+    {
+      "id": "kckTemplateAttributes",
+      "label": "Template Attributes",
+      "description": "Comma-separated list of attribute names that should be available in the template on the \u003ca href\u003d\"#TODO\"\u003eUser objects\u003c/a\u003e.",
+      "group": "kck",
+      "type": "String",
+      "feel": "optional",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "kckTemplateAttributes"
+      }
+    },
+    {
+      "id": "sjtSubject",
+      "label": "Subject Message Key",
+      "description": "Returns the message key itself if not found.",
+      "group": "sjt",
+      "type": "String",
+      "feel": "optional",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "sjtSubject"
+      },
+      "constraints": {
+        "notEmpty": true
+      }
+    },
+    {
+      "id": "sjtReplacement0",
+      "label": "Replacement {0}",
+      "group": "sjt",
+      "type": "String",
+      "feel": "optional",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "sjtReplacement0"
+      }
+    },
+    {
+      "id": "sjtReplacement1",
+      "label": "Replacement {1}",
+      "group": "sjt",
+      "type": "String",
+      "feel": "optional",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "sjtReplacement1"
+      }
+    },
+    {
+      "id": "sjtReplacement2",
+      "label": "Replacement {2}",
+      "group": "sjt",
+      "type": "String",
+      "feel": "optional",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "sjtReplacement2"
+      }
+    },
+    {
+      "id": "sjtReplacement3",
+      "label": "Replacement {3}",
+      "group": "sjt",
+      "type": "String",
+      "feel": "optional",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "sjtReplacement3"
+      }
+    },
+    {
+      "id": "sjtReplacement4",
+      "label": "Replacement {4}",
+      "group": "sjt",
+      "type": "String",
+      "feel": "optional",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "sjtReplacement4"
+      }
+    },
+    {
+      "id": "sdrEmailAddress",
+      "label": "Email Address",
+      "description": "Use this to specify an email address directly. Extended syntax supported (but not required): [ firstName \u0027;\u0027 ] lastName \u0027\u0026lt;\u0027 emailAddress \u0027\u0026gt;\u0027 [ locale [ \u0027;\u0027 sex ] ]. Where m \u003d male and f \u003d female, other \u003d unspecified. E.g. John;Doe\u0026lt;john.doe@acme.com\u0026gt;en;m",
+      "group": "sdr",
+      "type": "String",
+      "feel": "optional",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "sdrEmailAddress"
+      }
+    },
+    {
+      "id": "sdrUserById",
+      "label": "User by ID",
+      "description": "Take email address from keycloak user.",
+      "group": "sdr",
+      "type": "String",
+      "feel": "optional",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "sdrUserById"
+      }
+    },
+    {
+      "id": "sdrUserByUsername",
+      "label": "User by Username",
+      "description": "Take email address from keycloak user.",
+      "group": "sdr",
+      "type": "String",
+      "feel": "optional",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "sdrUserByUsername"
+      }
+    },
+    {
+      "id": "sdrUserByEmail",
+      "label": "User by Email Address",
+      "description": "Take this email address and load the keycloak user with this address.",
+      "group": "sdr",
+      "type": "String",
+      "feel": "optional",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "sdrUserByEmail"
+      }
+    },
+    {
+      "id": "rcpEmailAddresses",
+      "label": "Email Addresses",
+      "description": "Use this to specify email addresses directly. Extended syntax supported (but not required): [ firstName \u0027;\u0027 ] lastName \u0027\u0026lt;\u0027 emailAddress \u0027\u0026gt;\u0027 [ locale [ \u0027;\u0027 sex ] ]. Where m \u003d male and f \u003d female, other \u003d unspecified. E.g. John;Doe\u0026lt;john.doe@acme.com\u0026gt;en;m",
+      "group": "rcp",
+      "type": "String",
+      "feel": "optional",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "rcpEmailAddresses"
+      }
+    },
+    {
+      "id": "rcpUsersById",
+      "label": "Users by ID",
+      "description": "Take email address from keycloak users having the specified IDs.",
+      "group": "rcp",
+      "type": "String",
+      "feel": "optional",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "rcpUsersById"
+      }
+    },
+    {
+      "id": "rcpUsersByUsername",
+      "label": "Users by Username",
+      "description": "Take email address from keycloak users having the specified usernames.",
+      "group": "rcp",
+      "type": "String",
+      "feel": "optional",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "rcpUsersByUsername"
+      }
+    },
+    {
+      "id": "rcpUsersByEmailAddress",
+      "label": "Users by Email Address",
+      "description": "Load users having the specified email addresses and take those addresses.",
+      "group": "rcp",
+      "type": "String",
+      "feel": "optional",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "rcpUsersByEmailAddress"
+      }
+    },
+    {
+      "id": "rcpUsersByGroupId",
+      "label": "Users by Group ID",
+      "description": "Take email address from keycloak users which are members of the specified groups.",
+      "group": "rcp",
+      "type": "String",
+      "feel": "optional",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "rcpUsersByGroupId"
+      }
+    },
+    {
+      "id": "rcpUsersByGroupName",
+      "label": "Users by Group Name",
+      "description": "Take email address from keycloak users which are members of the specified groups.",
+      "group": "rcp",
+      "type": "String",
+      "feel": "optional",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "rcpUsersByGroupName"
+      }
+    },
+    {
+      "id": "rcpUsersByRoleName",
+      "label": "Users by Role Name",
+      "description": "Take email address from keycloak users which are members of the specified roles.",
+      "group": "rcp",
+      "type": "String",
+      "feel": "optional",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "rcpUsersByRoleName"
+      }
+    },
+    {
+      "id": "cpsCcEmailAddresses",
+      "label": "Cc Email Addresses",
+      "description": "Each mail is also sent to those email addresses (comma-separated).",
+      "group": "cps",
+      "type": "String",
+      "feel": "optional",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "cpsCcEmailAddresses"
+      }
+    },
+    {
+      "id": "cpsBccEmailAddresses",
+      "label": "Bcc Email Addresses",
+      "description": "Each mail is also sent to those email addresses (comma-separated). This can be used to easily create a complete email history.",
+      "group": "cps",
+      "type": "String",
+      "feel": "optional",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "cpsBccEmailAddresses"
+      }
+    },
+    {
+      "label": "Result Variable",
+      "description": "Name of the variable to store the response in.",
+      "type": "String",
+      "binding": {
+        "type": "zeebe:taskHeader",
+        "key": "resultVariable"
+      }
+    },
+    {
+      "label": "Result Expression",
+      "description": "Expression to handle the result. Details in the \u003ca href\u003d\"https://docs.camunda.io/docs/components/connectors/use-connectors/\" target\u003d\"_blank\"\u003edocumentation\u003c/a\u003e.",
+      "type": "Text",
+      "feel": "required",
+      "binding": {
+        "type": "zeebe:taskHeader",
+        "key": "resultExpression"
+      }
+    },
+    {
+      "label": "Error Expression",
+      "description": "Expression to handle errors. Details in the \u003ca href\u003d\"https://docs.camunda.io/docs/components/connectors/use-connectors/\" target\u003d\"_blank\"\u003edocumentation\u003c/a\u003e.",
+      "type": "Text",
+      "feel": "required",
+      "binding": {
+        "type": "zeebe:taskHeader",
+        "key": "errorExpression"
+      }
+    }
+  ]
+}
