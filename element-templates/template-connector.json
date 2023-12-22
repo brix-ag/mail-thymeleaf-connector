@@ -39,11 +39,13 @@
     {
       "id": "sdr",
       "label": "Sender",
+      "tooltip": "Exactly one of the fields has to be filled out.",
       "openByDefault": true
     },
     {
       "id": "rcp",
       "label": "Recipients",
+      "tooltip": "Only one mail is sent to each address e.g. if a user is in several specified groups or roles.",
       "openByDefault": true
     },
     {
