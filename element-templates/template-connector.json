@@ -22,48 +22,38 @@
     {
       "id": "tpt",
       "label": "Email Template",
-      "tooltip": "The connection to the mail server is configured in the runtime, \u003ca href\u003d\"https://github.com/brix-ag/camunda-connector-utils-spring#configuration-example-yaml\"\u003esee here\u003c/a\u003e.",
-      "openByDefault": true
+      "tooltip": "The connection to the mail server is configured in the runtime, \u003ca href\u003d\"https://github.com/brix-ag/camunda-connector-utils-spring#configuration-example-yaml\"\u003esee here\u003c/a\u003e."
     },
     {
       "id": "kck",
       "label": "Keycloak Attributes",
-      "tooltip": "The connection to keycloak is configured in the runtime, \u003ca href\u003d\"https://github.com/brix-ag/camunda-connector-utils-spring#configuration-yaml\"\u003esee here\u003c/a\u003e.",
-      "openByDefault": true
+      "tooltip": "The connection to keycloak is configured in the runtime, \u003ca href\u003d\"https://github.com/brix-ag/camunda-connector-utils-spring#configuration-yaml\"\u003esee here\u003c/a\u003e."
     },
     {
       "id": "sjt",
-      "label": "Subject",
-      "openByDefault": true
+      "label": "Subject"
     },
     {
       "id": "sdr",
       "label": "Sender",
-      "tooltip": "Exactly one of the fields has to be filled out.",
-      "openByDefault": true
+      "tooltip": "Exactly one of the fields has to be filled out."
     },
     {
       "id": "rcp",
       "label": "Recipients",
-      "tooltip": "Only one mail is sent to each address e.g. if a user is in several specified groups or roles.",
-      "openByDefault": true
+      "tooltip": "Only one mail is sent to each address e.g. if a user is in several specified groups or roles."
     },
     {
       "id": "cps",
-      "label": "Copies",
-      "openByDefault": true
+      "label": "Copies"
     },
     {
       "id": "output",
-      "label": "Output Mapping",
-      "tooltip": "",
-      "openByDefault": true
+      "label": "Output Mapping"
     },
     {
       "id": "errors",
-      "label": "Error Handling",
-      "tooltip": "",
-      "openByDefault": true
+      "label": "Error Handling"
     }
   ],
   "properties": [
