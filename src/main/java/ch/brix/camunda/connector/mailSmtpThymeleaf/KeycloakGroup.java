@@ -13,21 +13,21 @@ public class KeycloakGroup {
 
     @PropertyDefinition(
             label = "Locale Attribute Name",
-            description = "If set the locale is taken from this attribute."
+            tooltip = "If set the locale is taken from this attribute."
     )
     @SerializedName("kckLocaleAttributeName")
     private String localeAttributeName;
 
     @PropertyDefinition(
             label = "Sex Attribute Name",
-            description = "If set the sex is taken from this attribute."
+            tooltip = "If set the sex is taken from this attribute."
     )
     @SerializedName("kckSexAttributeName")
     private String sexAttributeName;
 
     @PropertyDefinition(
             label = "Male Sex Attribute Value",
-            description = "This value will be interpreted as male (for the <a href=\"https://github.com/brix-ag/mail-thymeleaf-connector#user-object\">User object</a>).",
+            tooltip = "This value will be interpreted as male (for the <a href=\"https://github.com/brix-ag/mail-thymeleaf-connector#user-object\">User object</a>).",
             value = "m"
     )
     @SerializedName("kckMaleSexAttributeValue")
@@ -35,7 +35,7 @@ public class KeycloakGroup {
 
     @PropertyDefinition(
             label = "Female Sex Attribute Value",
-            description = "This value will be interpreted as female (for the <a href=\"https://github.com/brix-ag/mail-thymeleaf-connector#user-object\">User object</a>).",
+            tooltip = "This value will be interpreted as female (for the <a href=\"https://github.com/brix-ag/mail-thymeleaf-connector#user-object\">User object</a>).",
             value = "f"
     )
     @SerializedName("kckFemaleSexAttributeValue")
@@ -43,7 +43,7 @@ public class KeycloakGroup {
 
     @PropertyDefinition(
             label = "Template Attributes",
-            description = "Comma-separated list of attribute names that should be available in the template on the <a href=\"https://github.com/brix-ag/mail-thymeleaf-connector#user-object\">User objects</a>."
+            tooltip = "Comma-separated list of attribute names that should be available in the template on the <a href=\"https://github.com/brix-ag/mail-thymeleaf-connector#user-object\">User objects</a>."
     )
     @SerializedName("kckTemplateAttributes")
     private CommaSeparatedStringSet templateAttributes;

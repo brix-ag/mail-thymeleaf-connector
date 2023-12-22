@@ -16,7 +16,7 @@ public class TemplateGroup {
 
     @PropertyDefinition(
             label = "Thymeleaf Template",
-            description = "Relative to template root without extension.",
+            tooltip = "Relative to template root without extension. Templates have to be in the runtime.",
             notEmpty = true
     )
     @NotBlank
@@ -25,28 +25,28 @@ public class TemplateGroup {
 
     @PropertyDefinition(
             label = "Fallback Locale",
-            description = "Locale to use for subject and template if not defined through other means."
+            tooltip = "Locale to use for subject and template if not defined through other means."
     )
     @SerializedName("tptFallbackLocale")
     private Locale fallbackLocale;
 
     @PropertyDefinition(
             label = "Template Variables",
-            description = "Variables that should be available in the template (empty = all). JSON booleans are mapped to Boolean, strings to String, numbers to Number, array to ArrayList and objects to HashMap&lt;String, Object&gt;."
+            tooltip = "Variables that should be available in the template (empty = all). JSON booleans are deserialized to Boolean, strings to String, numbers to Number, array to ArrayList and objects to HashMap&lt;String, Object&gt;."
     )
     @SerializedName("tptVariables")
     private CommaSeparatedStringSet variables;
 
     @PropertyDefinition(
             label = "Recipient Variable Name",
-            description = "Name of the variable to which the recipient <a href=\"https://github.com/brix-ag/mail-thymeleaf-connector#user-object\">User object</a> is passed."
+            tooltip = "Name of the variable to which the recipient <a href=\"https://github.com/brix-ag/mail-thymeleaf-connector#user-object\">User object</a> is passed."
     )
     @SerializedName("tptUserVariableName")
     private String userVariableName;
 
     @PropertyDefinition(
             label = "Sender Variable Name",
-            description = "Name of the variable to which the sender <a href=\"https://github.com/brix-ag/mail-thymeleaf-connector#user-object\">User object</a> is passed."
+            tooltip = "Name of the variable to which the sender <a href=\"https://github.com/brix-ag/mail-thymeleaf-connector#user-object\">User object</a> is passed."
     )
     @SerializedName("tptSenderVariableName")
     private String senderVariableName;

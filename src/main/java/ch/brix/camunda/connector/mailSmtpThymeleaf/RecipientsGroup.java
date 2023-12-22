@@ -14,7 +14,7 @@ public class RecipientsGroup {
 
     @PropertyDefinition(
             label = "Email Addresses",
-            description = "Use this to specify email addresses directly. Extended syntax supported (but not required): [ firstName ';' ] lastName '&lt;' emailAddress '&gt;' [ locale [ ';' sex ] ]. Where m = male and f = female, other = unspecified. E.g. John;Doe&lt;john.doe@acme.com&gt;en;m"
+            tooltip = "Use this to specify email addresses directly. <a href=\"https://github.com/brix-ag/mail-thymeleaf-connector#extended-email-syntax\">Extended syntax</a> supported (but not required): [ firstName ';' ] lastName '&lt;' emailAddress '&gt;' [ locale [ ';' sex ] ]. Where m = male and f = female, other = unspecified. E.g. John;Doe&lt;john.doe@acme.com&gt;en;m"
     )
     @Valid
     @SerializedName("rcpEmailAddresses")
@@ -22,7 +22,7 @@ public class RecipientsGroup {
 
     @PropertyDefinition(
             label = "Users by ID",
-            description = "Take email address from keycloak users having the specified IDs."
+            tooltip = "Take email address from keycloak users having the specified IDs (comma-separated)."
     )
     @Valid
     @SerializedName("rcpUsersById")
@@ -30,7 +30,7 @@ public class RecipientsGroup {
 
     @PropertyDefinition(
             label = "Users by Username",
-            description = "Take email address from keycloak users having the specified usernames."
+            tooltip = "Take email address from keycloak users having the specified usernames (comma-separated)."
     )
     @Valid
     @SerializedName("rcpUsersByUsername")
@@ -38,7 +38,7 @@ public class RecipientsGroup {
 
     @PropertyDefinition(
             label = "Users by Email Address",
-            description = "Load users having the specified email addresses and take those addresses."
+            tooltip = "Load users having the specified email addresses and take those addresses (comma-separated)."
     )
     @Valid
     @SerializedName("rcpUsersByEmailAddress")
@@ -47,7 +47,7 @@ public class RecipientsGroup {
 
     @PropertyDefinition(
             label = "Users by Group ID",
-            description = "Take email address from keycloak users which are members of the specified groups."
+            tooltip = "Take email address from keycloak users which are members of the specified groups (comma-separated)."
     )
     @Valid
     @SerializedName("rcpUsersByGroupId")
@@ -55,7 +55,7 @@ public class RecipientsGroup {
 
     @PropertyDefinition(
             label = "Users by Group Name",
-            description = "Take email address from keycloak users which are members of the specified groups."
+            tooltip = "Take email address from keycloak users which are members of the specified groups (comma-separated)."
     )
     @Valid
     @SerializedName("rcpUsersByGroupName")
@@ -63,7 +63,7 @@ public class RecipientsGroup {
 
     @PropertyDefinition(
             label = "Users by Role Name",
-            description = "Take email address from keycloak users which are members of the specified roles."
+            tooltip = "Take email address from keycloak users which are members of the specified roles (comma-separated)."
     )
     @Valid
     @SerializedName("rcpUsersByRoleName")

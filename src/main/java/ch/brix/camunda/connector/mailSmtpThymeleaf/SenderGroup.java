@@ -18,7 +18,7 @@ public class SenderGroup {
 
     @PropertyDefinition(
             label = "Email Address",
-            description = "Use this to specify an email address directly. Extended syntax supported (but not required): [ firstName ';' ] lastName '&lt;' emailAddress '&gt;' [ locale [ ';' sex ] ]. Where m = male and f = female, other = unspecified. E.g. John;Doe&lt;john.doe@acme.com&gt;en;m"
+            tooltip = "Use this to specify an email address directly. <a href=\"https://github.com/brix-ag/mail-thymeleaf-connector#extended-email-syntax\">Extended syntax</a> supported."
     )
     @Valid
     @SerializedName("sdrEmailAddress")
@@ -26,7 +26,7 @@ public class SenderGroup {
 
     @PropertyDefinition(
             label = "User by ID",
-            description = "Take email address from keycloak user."
+            tooltip = "Take email address from keycloak user."
     )
     @Valid
     @SerializedName("sdrUserById")
@@ -34,7 +34,7 @@ public class SenderGroup {
 
     @PropertyDefinition(
             label = "User by Username",
-            description = "Take email address from keycloak user."
+            tooltip = "Take email address from keycloak user."
     )
     @Valid
     @SerializedName("sdrUserByUsername")
@@ -42,7 +42,7 @@ public class SenderGroup {
 
     @PropertyDefinition(
             label = "User by Email Address",
-            description = "Take this email address and load the keycloak user with this address."
+            tooltip = "Take this email address and load the keycloak user with this address."
     )
     @Valid
     @SerializedName("sdrUserByEmail")

@@ -14,7 +14,7 @@ public class CopiesGroup {
 
     @PropertyDefinition(
             label = "Cc Email Addresses",
-            description = "Each mail is also sent to those email addresses (comma-separated)."
+            tooltip = "Each mail is also sent to those email addresses (comma-separated)."
     )
     @Valid
     @SerializedName("cpsCcEmailAddresses")
@@ -22,7 +22,7 @@ public class CopiesGroup {
 
     @PropertyDefinition(
             label = "Bcc Email Addresses",
-            description = "Each mail is also sent to those email addresses (comma-separated). This can be used to easily create a complete email history."
+            tooltip = "Each mail is also sent to those email addresses (comma-separated). This can be used to easily create a complete email history."
     )
     @Valid
     @SerializedName("cpsBccEmailAddresses")

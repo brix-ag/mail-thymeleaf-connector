@@ -15,7 +15,7 @@ public class SubjectGroup {
 
     @PropertyDefinition(
             label = "Subject Message Key",
-            description = "Returns the message key itself if not found.",
+            tooltip = "Returns the message key itself if not found. Replacements are still performed if possible.",
             notEmpty = true
     )
     @Valid
