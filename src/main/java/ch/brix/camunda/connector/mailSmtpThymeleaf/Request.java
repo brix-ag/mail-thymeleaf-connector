@@ -48,7 +48,8 @@ public class Request {
 
     @PropertyGroup(
             groupId = "sdr",
-            groupName = "Sender"
+            groupName = "Sender",
+            groupTooltip = "Exactly one of the fields has to be filled out."
     )
     @Valid
     @NotNull
@@ -56,7 +57,8 @@ public class Request {
 
     @PropertyGroup(
             groupId = "rcp",
-            groupName = "Recipients"
+            groupName = "Recipients",
+            groupTooltip = "Only one mail is sent to each address e.g. if a user is in several specified groups or roles."
     )
     @Valid
     @NotNull

@@ -114,7 +114,7 @@
     {
       "id": "tptUserVariableName",
       "label": "Recipient Variable Name",
-      "tooltip": "Name of the variable to which the recipient \u003ca href\u003d\"https://github.com/brix-ag/mail-thymeleaf-connector#user-object\"\u003eUser object\u003c/a\u003e is passed.",
+      "tooltip": "Name of the variable to which the recipient \u003ca href\u003d\"https://github.com/brix-ag/mail-thymeleaf-connector#user-object\" target\u003d\"_blank\"\u003eUser object\u003c/a\u003e is passed.",
       "group": "tpt",
       "type": "String",
       "feel": "optional",
@@ -126,7 +126,7 @@
     {
       "id": "tptSenderVariableName",
       "label": "Sender Variable Name",
-      "tooltip": "Name of the variable to which the sender \u003ca href\u003d\"https://github.com/brix-ag/mail-thymeleaf-connector#user-object\"\u003eUser object\u003c/a\u003e is passed.",
+      "tooltip": "Name of the variable to which the sender \u003ca href\u003d\"https://github.com/brix-ag/mail-thymeleaf-connector#user-object\" target\u003d\"_blank\"\u003eUser object\u003c/a\u003e is passed.",
       "group": "tpt",
       "type": "String",
       "feel": "optional",
@@ -162,7 +162,7 @@
     {
       "id": "kckMaleSexAttributeValue",
       "label": "Male Sex Attribute Value",
-      "tooltip": "This value will be interpreted as male (for the \u003ca href\u003d\"https://github.com/brix-ag/mail-thymeleaf-connector#user-object\"\u003eUser object\u003c/a\u003e).",
+      "tooltip": "This value will be interpreted as male (for the \u003ca href\u003d\"https://github.com/brix-ag/mail-thymeleaf-connector#user-object\" target\u003d\"_blank\"\u003eUser object\u003c/a\u003e).",
       "group": "kck",
       "type": "String",
       "feel": "optional",
@@ -175,7 +175,7 @@
     {
       "id": "kckFemaleSexAttributeValue",
       "label": "Female Sex Attribute Value",
-      "tooltip": "This value will be interpreted as female (for the \u003ca href\u003d\"https://github.com/brix-ag/mail-thymeleaf-connector#user-object\"\u003eUser object\u003c/a\u003e).",
+      "tooltip": "This value will be interpreted as female (for the \u003ca href\u003d\"https://github.com/brix-ag/mail-thymeleaf-connector#user-object\" target\u003d\"_blank\"\u003eUser object\u003c/a\u003e).",
       "group": "kck",
       "type": "String",
       "feel": "optional",
@@ -188,7 +188,7 @@
     {
       "id": "kckTemplateAttributes",
       "label": "Template Attributes",
-      "tooltip": "Comma-separated list of attribute names that should be available in the template on the \u003ca href\u003d\"https://github.com/brix-ag/mail-thymeleaf-connector#user-object\"\u003eUser objects\u003c/a\u003e.",
+      "tooltip": "Comma-separated list of attribute names that should be available in the template on the \u003ca href\u003d\"https://github.com/brix-ag/mail-thymeleaf-connector#user-object\" target\u003d\"_blank\"\u003eUser objects\u003c/a\u003e.",
       "group": "kck",
       "type": "String",
       "feel": "optional",
@@ -270,7 +270,7 @@
     {
       "id": "sdrEmailAddress",
       "label": "Email Address",
-      "tooltip": "Use this to specify an email address directly. \u003ca href\u003d\"https://github.com/brix-ag/mail-thymeleaf-connector#extended-email-syntax\"\u003eExtended syntax\u003c/a\u003e supported.",
+      "tooltip": "Use this to specify an email address directly. \u003ca href\u003d\"https://github.com/brix-ag/mail-thymeleaf-connector#extended-email-syntax\" target\u003d\"_blank\"\u003eExtended syntax\u003c/a\u003e supported.",
       "group": "sdr",
       "type": "String",
       "feel": "optional",
@@ -318,7 +318,7 @@
     {
       "id": "rcpEmailAddresses",
       "label": "Email Addresses",
-      "tooltip": "Use this to specify email addresses directly. \u003ca href\u003d\"https://github.com/brix-ag/mail-thymeleaf-connector#extended-email-syntax\"\u003eExtended syntax\u003c/a\u003e supported (but not required): [ firstName \u0027;\u0027 ] lastName \u0027\u0026lt;\u0027 emailAddress \u0027\u0026gt;\u0027 [ locale [ \u0027;\u0027 sex ] ]. Where m \u003d male and f \u003d female, other \u003d unspecified. E.g. John;Doe\u0026lt;john.doe@acme.com\u0026gt;en;m",
+      "tooltip": "Use this to specify email addresses directly. \u003ca href\u003d\"https://github.com/brix-ag/mail-thymeleaf-connector#extended-email-syntax\" target\u003d\"_blank\"\u003eExtended syntax\u003c/a\u003e supported.",
       "group": "rcp",
       "type": "String",
       "feel": "optional",
