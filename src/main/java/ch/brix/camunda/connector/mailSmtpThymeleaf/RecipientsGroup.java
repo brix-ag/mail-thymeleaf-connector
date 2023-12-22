@@ -14,7 +14,7 @@ public class RecipientsGroup {
 
     @PropertyDefinition(
             label = "Email Addresses",
-            tooltip = "Use this to specify email addresses directly. <a href=\"https://github.com/brix-ag/mail-thymeleaf-connector#extended-email-syntax\">Extended syntax</a> supported (but not required): [ firstName ';' ] lastName '&lt;' emailAddress '&gt;' [ locale [ ';' sex ] ]. Where m = male and f = female, other = unspecified. E.g. John;Doe&lt;john.doe@acme.com&gt;en;m"
+            tooltip = "Use this to specify email addresses directly. <a href=\"https://github.com/brix-ag/mail-thymeleaf-connector#extended-email-syntax\" target=\"_blank\">Extended syntax</a> supported."
     )
     @Valid
     @SerializedName("rcpEmailAddresses")

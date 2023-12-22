@@ -18,7 +18,7 @@ public class SenderGroup {
 
     @PropertyDefinition(
             label = "Email Address",
-            tooltip = "Use this to specify an email address directly. <a href=\"https://github.com/brix-ag/mail-thymeleaf-connector#extended-email-syntax\">Extended syntax</a> supported."
+            tooltip = "Use this to specify an email address directly. <a href=\"https://github.com/brix-ag/mail-thymeleaf-connector#extended-email-syntax\" target=\"_blank\">Extended syntax</a> supported."
     )
     @Valid
     @SerializedName("sdrEmailAddress")

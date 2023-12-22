@@ -39,14 +39,14 @@ public class TemplateGroup {
 
     @PropertyDefinition(
             label = "Recipient Variable Name",
-            tooltip = "Name of the variable to which the recipient <a href=\"https://github.com/brix-ag/mail-thymeleaf-connector#user-object\">User object</a> is passed."
+            tooltip = "Name of the variable to which the recipient <a href=\"https://github.com/brix-ag/mail-thymeleaf-connector#user-object\" target=\"_blank\">User object</a> is passed."
     )
     @SerializedName("tptUserVariableName")
     private String userVariableName;
 
     @PropertyDefinition(
             label = "Sender Variable Name",
-            tooltip = "Name of the variable to which the sender <a href=\"https://github.com/brix-ag/mail-thymeleaf-connector#user-object\">User object</a> is passed."
+            tooltip = "Name of the variable to which the sender <a href=\"https://github.com/brix-ag/mail-thymeleaf-connector#user-object\" target=\"_blank\">User object</a> is passed."
     )
     @SerializedName("tptSenderVariableName")
     private String senderVariableName;
